@@ -81,12 +81,12 @@ const healthCheckHandler = (req, res) => {
 app.get('/health', healthCheckHandler);
 app.get('/api/v1/health', healthCheckHandler);
 
-// API Routes
-app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/users', userRoutes);
-app.use('/api/v1/resources', resourceRoutes);
-app.use('/api/v1/bookings', bookingRoutes);
-app.use('/api/v1/ai', aiRoutes);
+// API Routes (supports both /api/v1/* and root /* paths)
+app.use(['/api/v1/auth', '/auth'], authRoutes);
+app.use(['/api/v1/users', '/users'], userRoutes);
+app.use(['/api/v1/resources', '/resources'], resourceRoutes);
+app.use(['/api/v1/bookings', '/bookings'], bookingRoutes);
+app.use(['/api/v1/ai', '/ai'], aiRoutes);
 
 // 404 Route Not Found Handler
 app.use((req, res) => {
