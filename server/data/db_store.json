@@ -1,0 +1,603 @@
+{
+  "users": [
+    {
+      "_id": "488c4998f983cf72d17d50c0",
+      "name": "Keerthana",
+      "email": "keerthanaaruvi2008@gmail.com",
+      "passwordHash": "$2b$10$Wz75rLbKRcp86dlZsxmESufMyzTJClLa5EnrH/8lTY8K6NJkOcSE.",
+      "role": "admin",
+      "department": "Computer Science and Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:28.344Z",
+      "updatedAt": "2026-08-29T06:20:28.344Z"
+    },
+    {
+      "_id": "6ff6c88e510357df70d1b69c",
+      "name": "Portal Administrator",
+      "email": "admin@university.edu",
+      "passwordHash": "$2b$10$.EnFecqRh5aPFZo/VNkPiOb8kCvwRkcZ.biqkWANQFjcMJk9p5aKG",
+      "role": "admin",
+      "department": "Computer Science and Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:28.505Z",
+      "updatedAt": "2026-08-29T06:20:28.505Z"
+    },
+    {
+      "_id": "67ba0c8c588e949f5ade6acb",
+      "name": "keerthana A",
+      "email": "310625243103@eec.srmrmp.edu.in",
+      "passwordHash": "$2b$10$od7KRaUC4x07YZ8VqVA/8OX/yYZTkqCWt2H0/KS8cEYABo2NLcC9K",
+      "role": "student",
+      "department": "Computer Science and Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:28.772Z",
+      "updatedAt": "2026-08-29T06:20:28.772Z"
+    },
+    {
+      "_id": "7a9460f176cf24ad79249cea",
+      "name": "SRM Student",
+      "email": "310625243075@eec.srmrmp.edu.in",
+      "passwordHash": "$2b$10$Am251jCx/htCToRce6DN1ONYKa3fmze8nEZwhT7ihCB2Xoqkfl.L.",
+      "role": "student",
+      "department": "Computer Science and Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:28.887Z",
+      "updatedAt": "2026-08-29T06:20:28.887Z"
+    },
+    {
+      "_id": "8e5ba7031c00afd6f1669cc6",
+      "name": "Prof. Alan Turing",
+      "email": "prof.turing@eec.srmrmp.edu.in",
+      "passwordHash": "$2b$10$cW1dJPbYHenrhlmxZaOmPO//svHEPNc7l8Hl519vtNwQPNTzAxAQC",
+      "role": "faculty",
+      "department": "Computer Science and Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.017Z",
+      "updatedAt": "2026-08-29T06:20:29.017Z"
+    },
+    {
+      "_id": "5c16c3628fcec845f1958644",
+      "name": "Dr. Marie Curie",
+      "email": "dr.curie@physics.university.edu",
+      "passwordHash": "$2b$10$Fohw8kaVjZLA.6Q4wtbeL.PPZ9Gs3ZEhbD.VaaBqQg.PRzzhA5e9O",
+      "role": "faculty",
+      "department": "Computer Science and Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.207Z",
+      "updatedAt": "2026-08-29T06:20:29.207Z"
+    },
+    {
+      "_id": "646aa034d34ce88df4e95c87",
+      "name": "Alice Johnson",
+      "email": "alice.johnson@student.university.edu",
+      "passwordHash": "$2b$10$8C3n8SiyHEvi20iPYdQX6ehw27wEGYlKcl/qkzThvMfm3U5CeSUOm",
+      "role": "student",
+      "department": "Computer Science and Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.409Z",
+      "updatedAt": "2026-08-29T06:20:29.409Z"
+    },
+    {
+      "_id": "7e6bbeb3ea461cc1c7f7dea7",
+      "name": "Bob Smith",
+      "email": "bob.smith@student.university.edu",
+      "passwordHash": "$2b$10$CmddeuKotJbDvP4tXEVyD.x9DOJ/iCDv.v9TgVkCJgJlr4FvEm7ty",
+      "role": "student",
+      "department": "Computer Science and Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.602Z",
+      "updatedAt": "2026-08-29T06:20:29.602Z"
+    },
+    {
+      "_id": "cc4981c3864fab1b39b160e7",
+      "name": "Carol Danvers",
+      "email": "carol.danvers@student.university.edu",
+      "passwordHash": "$2b$10$KqLJxMirtqNVT1jQtixyM.mApP6Uqd4ZIPL4UFBouXMqjFYtZ6RYi",
+      "role": "student",
+      "department": "Computer Science and Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    }
+  ],
+  "resources": [
+    {
+      "_id": "450965f505065ef39e1ebe86",
+      "name": "Marie Curie Seminar Hall",
+      "type": "seminar_hall",
+      "capacity": 120,
+      "location": {
+        "building": "East Science Complex",
+        "floor": 1,
+        "roomNumber": "HALL-A"
+      },
+      "amenities": [
+        "Stage",
+        "Surround Sound",
+        "HD Projector",
+        "Air Conditioning",
+        "Live Streaming"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "005bb5de19e81d0f527efe97",
+      "name": "Alan Turing Grand Auditorium",
+      "type": "auditorium",
+      "capacity": 350,
+      "location": {
+        "building": "Main Campus Tower",
+        "floor": 1,
+        "roomNumber": "AUD-01"
+      },
+      "amenities": [
+        "Tiered Seating",
+        "Stage Lighting",
+        "Dual 4K Projectors",
+        "Wireless Mics",
+        "AV Booth"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "908a4bb60f03959b622995fb",
+      "name": "Ada Lovelace Computing Lab",
+      "type": "lab",
+      "capacity": 45,
+      "location": {
+        "building": "Turing Computer Block",
+        "floor": 2,
+        "roomNumber": "LAB-201"
+      },
+      "amenities": [
+        "45 High-Performance Linux PCs",
+        "Gigabit Ethernet",
+        "Interactive Smartboard"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "193ffae8517382549ff313af",
+      "name": "Von Neumann Robotics & AI Lab",
+      "type": "lab",
+      "capacity": 30,
+      "location": {
+        "building": "Turing Computer Block",
+        "floor": 3,
+        "roomNumber": "LAB-305"
+      },
+      "amenities": [
+        "GPU Compute Cluster",
+        "Soldering Stations",
+        "3D Printers",
+        "Robotics Workbenches"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "c9adac0e91d85b8f064d62bc",
+      "name": "Claude Shannon Network Systems Lab",
+      "type": "lab",
+      "capacity": 35,
+      "location": {
+        "building": "Turing Computer Block",
+        "floor": 2,
+        "roomNumber": "LAB-204"
+      },
+      "amenities": [
+        "Cisco Network Racks",
+        "Hardware Protocol Analyzers",
+        "Dual Monitors"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "c2fa96aa930986af08d18ab2",
+      "name": "Isaac Newton Lecture Hall 101",
+      "type": "classroom",
+      "capacity": 75,
+      "location": {
+        "building": "Academic Block A",
+        "floor": 1,
+        "roomNumber": "LH-101"
+      },
+      "amenities": [
+        "Tiered Desks",
+        "Document Camera",
+        "Microphone System",
+        "Whiteboards"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "f0deeed6632fcf3640a5e9a6",
+      "name": "Galileo Smart Classroom 202",
+      "type": "classroom",
+      "capacity": 40,
+      "location": {
+        "building": "Academic Block B",
+        "floor": 2,
+        "roomNumber": "CR-202"
+      },
+      "amenities": [
+        "Interactive Touchscreen Displays",
+        "Flexible Group Seating",
+        "Video Conferencing"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "c7d70dc8ebf644d9591880ea",
+      "name": "Albert Einstein Theoretical Physics Room",
+      "type": "classroom",
+      "capacity": 50,
+      "location": {
+        "building": "Academic Block A",
+        "floor": 3,
+        "roomNumber": "CR-303"
+      },
+      "amenities": [
+        "Floor-to-Ceiling Chalkboards",
+        "Overhead Projector",
+        "Sound Dampening"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "2c39a53dd4729f42fdf5b60b",
+      "name": "Mobile 4K Laser Cinema Projector Unit",
+      "type": "equipment",
+      "capacity": 1,
+      "location": {
+        "building": "Central Media Services Hub",
+        "floor": 1,
+        "roomNumber": "EQ-04"
+      },
+      "amenities": [
+        "4K Ultra-Short Throw",
+        "HDMI / Wireless Casting",
+        "Tripod Screen Included"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "019e9650be0f4c841ee51942",
+      "name": "Wireless Quad-Channel Microphone & PA Kit",
+      "type": "equipment",
+      "capacity": 1,
+      "location": {
+        "building": "Central Media Services Hub",
+        "floor": 1,
+        "roomNumber": "EQ-12"
+      },
+      "amenities": [
+        "4 Lapel & Handheld Mics",
+        "Portable Bluetooth PA Speaker",
+        "Rechargeable Batteries"
+      ],
+      "status": "available",
+      "isActive": true,
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    }
+  ],
+  "bookings": [
+    {
+      "_id": "9023aa29803319aae19ff1e3",
+      "resourceId": {
+        "_id": "005bb5de19e81d0f527efe97",
+        "name": "Alan Turing Grand Auditorium",
+        "type": "auditorium",
+        "capacity": 350,
+        "location": {
+          "building": "Main Campus Tower",
+          "floor": 1,
+          "roomNumber": "AUD-01"
+        },
+        "amenities": [
+          "Tiered Seating",
+          "Stage Lighting",
+          "Dual 4K Projectors",
+          "Wireless Mics",
+          "AV Booth"
+        ],
+        "status": "available",
+        "isActive": true,
+        "createdBy": {
+          "_id": "488c4998f983cf72d17d50c0",
+          "name": "Keerthana (Portal Administrator)",
+          "email": "keerthanaaruvi2008@gmail.com",
+          "passwordHash": "$2b$10$LWPhnyR731D0ILQSUQgxd.OeOdADxcrASMijW..7IuWb2kci6wwJ6",
+          "role": "admin",
+          "department": "Computer Science and Engineering",
+          "isActive": true,
+          "createdAt": "2026-08-29T06:20:28.344Z",
+          "updatedAt": "2026-08-29T06:20:28.344Z"
+        },
+        "createdAt": "2026-08-29T06:20:29.741Z",
+        "updatedAt": "2026-08-29T06:20:29.741Z"
+      },
+      "bookedBy": {
+        "_id": "7a9460f176cf24ad79249cea",
+        "name": "SRM Student",
+        "email": "310625243075@eec.srmrmp.edu.in",
+        "passwordHash": "$2b$10$Am251jCx/htCToRce6DN1ONYKa3fmze8nEZwhT7ihCB2Xoqkfl.L.",
+        "role": "student",
+        "department": "Computer Science and Engineering",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:28.887Z",
+        "updatedAt": "2026-08-29T06:20:28.887Z"
+      },
+      "approvedBy": {
+        "_id": "488c4998f983cf72d17d50c0",
+        "name": "Keerthana",
+        "email": "keerthanaaruvi2008@gmail.com",
+        "passwordHash": "$2b$10$Wz75rLbKRcp86dlZsxmESufMyzTJClLa5EnrH/8lTY8K6NJkOcSE.",
+        "role": "admin",
+        "department": "Computer Science and Engineering",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:28.344Z",
+        "updatedAt": "2026-08-29T06:20:28.344Z"
+      },
+      "title": "AI & Machine Learning Hackathon Workshop",
+      "description": "Student-led deep learning model building session.",
+      "startTime": "2026-08-30T14:00:00.000Z",
+      "endTime": "2026-08-30T17:00:00.000Z",
+      "status": "approved",
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "c1411f41c07c2fc1441d688a",
+      "resourceId": {
+        "_id": "908a4bb60f03959b622995fb",
+        "name": "Ada Lovelace Computing Lab",
+        "type": "lab",
+        "capacity": 45,
+        "location": {
+          "building": "Turing Computer Block",
+          "floor": 2,
+          "roomNumber": "LAB-201"
+        },
+        "amenities": [
+          "45 High-Performance Linux PCs",
+          "Gigabit Ethernet",
+          "Interactive Smartboard"
+        ],
+        "status": "available",
+        "isActive": true,
+        "createdBy": {
+          "_id": "488c4998f983cf72d17d50c0",
+          "name": "Keerthana (Portal Administrator)",
+          "email": "keerthanaaruvi2008@gmail.com",
+          "passwordHash": "$2b$10$LWPhnyR731D0ILQSUQgxd.OeOdADxcrASMijW..7IuWb2kci6wwJ6",
+          "role": "admin",
+          "department": "Computer Science and Engineering",
+          "isActive": true,
+          "createdAt": "2026-08-29T06:20:28.344Z",
+          "updatedAt": "2026-08-29T06:20:28.344Z"
+        },
+        "createdAt": "2026-08-29T06:20:29.741Z",
+        "updatedAt": "2026-08-29T06:20:29.741Z"
+      },
+      "bookedBy": {
+        "_id": "8e5ba7031c00afd6f1669cc6",
+        "name": "Prof. Alan Turing",
+        "email": "prof.turing@eec.srmrmp.edu.in",
+        "passwordHash": "$2b$10$cW1dJPbYHenrhlmxZaOmPO//svHEPNc7l8Hl519vtNwQPNTzAxAQC",
+        "role": "faculty",
+        "department": "Computer Science and Engineering",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:29.017Z",
+        "updatedAt": "2026-08-29T06:20:29.017Z"
+      },
+      "approvedBy": {
+        "_id": "488c4998f983cf72d17d50c0",
+        "name": "Keerthana",
+        "email": "keerthanaaruvi2008@gmail.com",
+        "passwordHash": "$2b$10$Wz75rLbKRcp86dlZsxmESufMyzTJClLa5EnrH/8lTY8K6NJkOcSE.",
+        "role": "admin",
+        "department": "Computer Science and Engineering",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:28.344Z",
+        "updatedAt": "2026-08-29T06:20:28.344Z"
+      },
+      "title": "Robotics Autonomous Navigation Demo",
+      "description": "Faculty robotics presentation and lab hardware demonstration.",
+      "startTime": "2026-08-31T09:00:00.000Z",
+      "endTime": "2026-08-31T12:00:00.000Z",
+      "status": "approved",
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "25e1fb43c1013541e613a205",
+      "resourceId": {
+        "_id": "193ffae8517382549ff313af",
+        "name": "Von Neumann Robotics & AI Lab",
+        "type": "lab",
+        "capacity": 30,
+        "location": {
+          "building": "Turing Computer Block",
+          "floor": 3,
+          "roomNumber": "LAB-305"
+        },
+        "amenities": [
+          "GPU Compute Cluster",
+          "Soldering Stations",
+          "3D Printers",
+          "Robotics Workbenches"
+        ],
+        "status": "available",
+        "isActive": true,
+        "createdBy": {
+          "_id": "488c4998f983cf72d17d50c0",
+          "name": "Keerthana (Portal Administrator)",
+          "email": "keerthanaaruvi2008@gmail.com",
+          "passwordHash": "$2b$10$LWPhnyR731D0ILQSUQgxd.OeOdADxcrASMijW..7IuWb2kci6wwJ6",
+          "role": "admin",
+          "department": "Computer Science and Engineering",
+          "isActive": true,
+          "createdAt": "2026-08-29T06:20:28.344Z",
+          "updatedAt": "2026-08-29T06:20:28.344Z"
+        },
+        "createdAt": "2026-08-29T06:20:29.741Z",
+        "updatedAt": "2026-08-29T06:20:29.741Z"
+      },
+      "bookedBy": {
+        "_id": "67ba0c8c588e949f5ade6acb",
+        "name": "SRM Student (Keerthana)",
+        "email": "310625243103@eec.srmrmp.edu.in",
+        "passwordHash": "$2b$10$A/Nq2II4VVRQhOROgBp13u3pryDtsr7Xon4edU7pX34VHvqesP.Fy",
+        "role": "student",
+        "department": "Computer Science and Engineering",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:28.772Z",
+        "updatedAt": "2026-08-29T06:20:28.772Z"
+      },
+      "approvedBy": {
+        "_id": "488c4998f983cf72d17d50c0",
+        "name": "Keerthana (Portal Administrator)",
+        "email": "keerthanaaruvi2008@gmail.com",
+        "passwordHash": "$2b$10$LWPhnyR731D0ILQSUQgxd.OeOdADxcrASMijW..7IuWb2kci6wwJ6",
+        "role": "admin",
+        "department": "Computer Science and Engineering",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:28.344Z",
+        "updatedAt": "2026-08-29T06:20:28.344Z"
+      },
+      "title": "Cloud Infrastructure & DevOps Masterclass",
+      "description": "Hands-on Kubernetes and Docker deployment session.",
+      "startTime": "2026-09-01T13:00:00.000Z",
+      "endTime": "2026-09-01T15:00:00.000Z",
+      "status": "approved",
+      "createdAt": "2026-08-29T06:20:29.741Z",
+      "updatedAt": "2026-08-29T06:20:29.741Z"
+    },
+    {
+      "_id": "586542e8ba61c022eed80e19",
+      "resourceId": {
+        "_id": "450965f505065ef39e1ebe86",
+        "name": "Marie Curie Seminar Hall",
+        "type": "seminar_hall",
+        "capacity": 120,
+        "location": {
+          "building": "East Science Complex",
+          "floor": 1,
+          "roomNumber": "HALL-A"
+        },
+        "amenities": [
+          "Stage",
+          "Surround Sound",
+          "HD Projector",
+          "Air Conditioning",
+          "Live Streaming"
+        ],
+        "status": "available",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:29.741Z",
+        "updatedAt": "2026-08-29T06:20:29.741Z"
+      },
+      "bookedBy": {
+        "_id": "67ba0c8c588e949f5ade6acb",
+        "name": "keerthana A",
+        "email": "310625243103@eec.srmrmp.edu.in",
+        "passwordHash": "$2b$10$od7KRaUC4x07YZ8VqVA/8OX/yYZTkqCWt2H0/KS8cEYABo2NLcC9K",
+        "role": "student",
+        "department": "Computer Science and Engineering",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:28.772Z",
+        "updatedAt": "2026-08-29T06:20:28.772Z"
+      },
+      "approvedBy": {
+        "_id": "488c4998f983cf72d17d50c0",
+        "name": "Keerthana",
+        "email": "keerthanaaruvi2008@gmail.com",
+        "passwordHash": "$2b$10$Wz75rLbKRcp86dlZsxmESufMyzTJClLa5EnrH/8lTY8K6NJkOcSE.",
+        "role": "admin",
+        "department": "Computer Science and Engineering",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:28.344Z",
+        "updatedAt": "2026-08-29T06:20:28.344Z"
+      },
+      "title": "Marie Curie Seminar Hall Event",
+      "description": "",
+      "startTime": "2026-08-30T09:00:00.000Z",
+      "endTime": "2026-08-30T10:00:00.000Z",
+      "status": "approved",
+      "createdAt": "2026-08-29T09:28:36.755Z",
+      "updatedAt": "2026-08-29T09:28:36.755Z"
+    },
+    {
+      "_id": "05196aa30aa219c22d381e45",
+      "resourceId": {
+        "_id": "450965f505065ef39e1ebe86",
+        "name": "Marie Curie Seminar Hall",
+        "type": "seminar_hall",
+        "capacity": 120,
+        "location": {
+          "building": "East Science Complex",
+          "floor": 1,
+          "roomNumber": "HALL-A"
+        },
+        "amenities": [
+          "Stage",
+          "Surround Sound",
+          "HD Projector",
+          "Air Conditioning",
+          "Live Streaming"
+        ],
+        "status": "available",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:29.741Z",
+        "updatedAt": "2026-08-29T06:20:29.741Z"
+      },
+      "bookedBy": {
+        "_id": "67ba0c8c588e949f5ade6acb",
+        "name": "keerthana A",
+        "email": "310625243103@eec.srmrmp.edu.in",
+        "passwordHash": "$2b$10$od7KRaUC4x07YZ8VqVA/8OX/yYZTkqCWt2H0/KS8cEYABo2NLcC9K",
+        "role": "student",
+        "department": "Computer Science and Engineering",
+        "isActive": true,
+        "createdAt": "2026-08-29T06:20:28.772Z",
+        "updatedAt": "2026-08-29T06:20:28.772Z"
+      },
+      "approvedBy": null,
+      "title": "fghxdcfvgb",
+      "description": "",
+      "startTime": "2026-09-01T12:00:00.000Z",
+      "endTime": "2026-09-01T14:00:00.000Z",
+      "status": "pending",
+      "createdAt": "2026-08-29T09:35:59.637Z",
+      "updatedAt": "2026-08-29T09:35:59.637Z"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+# .cursorrules — Academic Event & Resource Booking Portal
+
+You are acting as a Principal Full-Stack Developer (MERN + optional FastAPI AI microservice)
+working inside this repo. Follow these rules for EVERY file you generate or edit.
+
+## 0. Project Identity
+- Name: Academic Event & Resource Booking Portal
+- Purpose: Centralized reservation system for seminar halls, labs, classrooms, and institutional
+  resources. The #1 non-negotiable invariant is: NO DOUBLE-BOOKING, EVER.
+- Stack: MongoDB + Mongoose, Express.js, React.js (Vite), Node.js. Optional Python/FastAPI
+  microservice for LLM-powered natural language search & conflict-resolution suggestions.
+- Repo layout: /client (React SPA), /server (Express API), /ai-service (FastAPI, optional,
+  called by /server over HTTP — never called directly by the client).
+
+## 1. Directory & File Conventions
+- server/src/models       → Mongoose schemas only. One model per file. PascalCase filenames
+  matching the model name (User.js, Resource.js, Booking.js).
+- server/src/controllers  → Business logic. One controller per resource. Thin — no raw
+  Mongoose queries in routes.
+- server/src/routes       → Express routers only. No business logic. Wire controller +
+  middleware (auth, validation, rbac) here.
+- server/src/middleware   → auth.js (JWT verify), rbac.js (role guard), validate.js (schema
+  validation via zod/joi), errorHandler.js (centralized error middleware).
+- server/src/services     → Reusable domain logic reused across controllers (e.g.
+  bookingConflictService.js, availabilityEngine.js). Controllers call services, not the DB
+  directly, for anything involving conflict logic.
+- client/src/pages        → Route-level components (one per URL).
+- client/src/components   → Reusable, presentational + small stateful pieces.
+- client/src/services     → Axios instances / API call wrappers. Components never call
+  axios/fetch directly — always through a service function.
+- client/src/context       → Auth context, booking context (React Context + useReducer).
+- ai-service/app/routers  → FastAPI route modules (e.g. nl_search.py, conflict_advisor.py).
+- ai-service/app/services → LLM prompt construction + provider client (OpenAI/Gemini) wrappers.
+
+## 2. Code Style
+- JavaScript/Node: ES Modules (`import/export`), async/await only — no raw `.then()` chains,
+  no callback-style Mongoose calls. Always wrap async route handlers in a try/catch or an
+  `asyncHandler` utility that forwards to centralized error middleware.
+- React: Functional components + hooks only. No class components. Co-locate small
+  component-specific styles; use a consistent CSS approach (Tailwind preferred once
+  scaffolded) — no inline style objects for anything beyond one-off dynamic values.
+- Python: PEP8, type hints on every function signature, Pydantic models for all
+  request/response bodies (no raw dicts across the FastAPI boundary).
+- Naming: camelCase for JS variables/functions, PascalCase for JS classes/components/Mongoose
+  models, snake_case for Python, SCREAMING_SNAKE_CASE for env vars and true constants.
+- Every exported function/module gets a short JSDoc or docstring header stating purpose,
+  params, and return shape.
+- No secrets, API keys, or connection strings in code. Everything through `.env` +
+  `process.env` (Node) / `os.environ` (Python), validated at boot via a config loader that
+  fails fast if a required var is missing.
+
+## 3. Database Conventions (MongoDB / Mongoose)
+- All ObjectId references use `ref` + explicit field naming: `resourceId`, `bookedBy`,
+  `approvedBy` — never bare `resource`, `user`.
+- Timestamps: every schema uses `{ timestamps: true }` (createdAt/updatedAt). Never
+  hand-roll date tracking fields.
+- Enums are defined as named constants exported from `server/src/config/constants.js` and
+  imported into schemas — never inline magic strings like `"pending"` scattered across files.
+- Soft-delete over hard-delete for Resources and Users (`isActive: Boolean`) to preserve
+  historical booking integrity. Bookings themselves are never deleted, only status-transitioned
+  (`cancelled`, `rejected`).
+- All time values stored as UTC `Date` objects. Timezone conversion is a presentation-layer
+  concern (client), never a storage concern.
+
+## 4. Conflict-Prevention Constraints (CRITICAL — read before touching Booking logic)
+This system's core value proposition is that double-booking is *structurally impossible*,
+not just "checked for." Enforce it at multiple layers, in this order of trust:
+
+1. **Database layer (source of truth):**
+   - Bookings collection has a compound index on `{ resourceId: 1, startTime: 1, endTime: 1 }`.
+   - Every booking write goes through a service function that performs an atomic
+     overlap-check-then-insert using MongoDB transactions (`session.withTransaction`) — never
+     a bare `Booking.create()` from a controller.
+   - Overlap condition to check before insert (standard interval overlap test):
+     `existing.startTime < newBooking.endTime AND existing.endTime > newBooking.startTime`,
+     scoped to the same `resourceId` and to bookings with status in `["approved", "pending"]`
+     (pending bookings soft-lock the slot to prevent race conditions during approval).
+   - Prefer MongoDB transactions + a unique compound guard over relying on application-level
+     locking alone; application logic is the second line of defense, not the first.
+2. **Application layer:** `availabilityEngine.js` / `bookingConflictService.js` re-validates
+   the same overlap condition before ever calling the DB write, so we fail fast with a clean
+   4xx error instead of surfacing a raw Mongo error.
+3. **API layer:** Booking creation/update endpoints return `409 Conflict` (not 400/500) with a
+   structured error body `{ error, conflictingBookingId, suggestedSlots }` when an overlap is
+   detected, so the client and the AI assistant can react intelligently.
+4. **Client layer:** Calendar UI disables/greys out already-booked slots using the
+   availability endpoint before submit — this is UX sugar only, NEVER the source of truth.
+- Any AI-generated "conflict resolution advice" must be advisory text only. The AI service
+  NEVER writes directly to the Bookings collection — it can only call the same
+  conflict-checked booking service endpoints as everything else.
+
+## 5. Auth & RBAC
+- Roles: `student`, `faculty`, `admin`. Stored on the User model as an enum, never inferred.
+- JWT access token (short-lived, ~15min) + refresh token (httpOnly cookie) pattern.
+- `middleware/auth.js` verifies JWT and attaches `req.user`. `middleware/rbac.js` takes an
+  allowed-roles array and 403s otherwise. Every route explicitly declares its required role(s)
+  — no implicit "any authenticated user" without a conscious decision documented in a comment.
+- Faculty/students can only cancel their own bookings; only admin can approve/reject or
+  override another user's booking.
+
+## 6. API Design
+- REST, versioned under `/api/v1`.
+- Standard response envelope: `{ success: boolean, data?, error?: { message, code } }`.
+- Validation via a schema library (zod/joi) at the route boundary, before controller logic
+  ever runs.
+- Pagination on all list endpoints (`?page=&limit=`), default limit 20, max 100.
+
+## 7. AI Microservice Boundary
+- `/server` treats `/ai-service` as an untrusted external API: validate/whitelist its output,
+  never `eval` or directly execute anything it returns, and always pass its suggested
+  bookings back through the standard conflict-checked booking service before persisting.
+- AI natural-language search endpoint returns *structured* JSON (resource filters: capacity,
+  equipment, time window) — not free text — so the Node backend can run a normal deterministic
+  query against it.
+
+## 8. Testing & Quality Gates
+- Every new service function touching booking logic ships with at least one Jest test that
+  asserts overlap is rejected.
+- Lint (ESLint + Prettier for JS, Ruff/Black for Python) must pass before a phase is marked
+  complete.
+
+## 9. How to Work With Me In This Repo
+- Build in the phase order defined in `docs/PHASE_1_CHECKLIST.md` (and subsequent phase docs).
+  Do not jump ahead to booking UI before the conflict-prevention engine exists.
+- Propose one checklist item at a time, wait for explicit approval, then generate code for
+  just that item.
+- Always state which files you are creating/modifying before writing them.
