@@ -50,6 +50,7 @@ export const generateAndSendOtp = async (email, name = 'Student', purpose = 'Acc
     success: true,
     email: normalizedEmail,
     expiresInSeconds: Math.floor(OTP_EXPIRY_MS / 1000),
+    otp,
   };
 };
 

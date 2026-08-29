@@ -28,6 +28,7 @@ export const OtpVerificationModal = ({
   onResend,
   isSubmitting = false,
   error = '',
+  devOtp = '',
 }) => {
   const [digits, setDigits] = useState(['', '', '', '', '', '']);
   const [resendCooldown, setResendCooldown] = useState(45);
@@ -143,6 +144,27 @@ export const OtpVerificationModal = ({
               <span>{email}</span>
             </div>
           </div>
+
+          {/* Dev/Test OTP Helper Banner */}
+          {devOtp && (
+            <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-between text-xs text-amber-900">
+              <div className="flex items-center gap-2">
+                <KeyRound className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                <span>Code: <strong className="font-mono text-sm tracking-widest font-bold text-amber-800">{devOtp}</strong></span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  const splitDigits = devOtp.split('');
+                  setDigits(splitDigits);
+                  inputsRef.current[5]?.focus();
+                }}
+                className="px-2 py-1 bg-amber-600 hover:bg-amber-700 text-white rounded-lg text-xs font-bold transition shadow-xs"
+              >
+                Auto-fill
+              </button>
+            </div>
+          )}
 
           {/* Error Banner */}
           {error && (

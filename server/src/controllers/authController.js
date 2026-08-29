@@ -106,6 +106,8 @@ export const sendOtp = asyncHandler(async (req, res) => {
       message: `A 6-digit verification code has been dispatched to ${result.email}.`,
       email: result.email,
       expiresInSeconds: result.expiresInSeconds,
+      otp: result.otp,
+      devOtp: result.otp,
     },
   });
 });

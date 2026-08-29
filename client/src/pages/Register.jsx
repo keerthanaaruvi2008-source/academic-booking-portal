@@ -36,6 +36,7 @@ export const RegisterPage = () => {
   const [isOtpModalOpen, setIsOtpModalOpen] = useState(false);
   const [otpError, setOtpError] = useState('');
   const [isVerifyingOtp, setIsVerifyingOtp] = useState(false);
+  const [devOtp, setDevOtp] = useState('');
 
   const { register } = useAuth();
   const { showSuccess } = useToast();
@@ -74,11 +75,15 @@ export const RegisterPage = () => {
 
     try {
       setIsSubmitting(true);
-      await sendOtp({
+      const res = await sendOtp({
         email,
         name: formData.name.trim(),
         purpose: 'Account Registration',
       });
+
+      if (res?.data?.devOtp || res?.data?.otp) {
+        setDevOtp(res.data.devOtp || res.data.otp);
+      }
 
       setIsOtpModalOpen(true);
       showSuccess(`Verification code dispatched to ${email}`);
@@ -291,6 +296,7 @@ export const RegisterPage = () => {
         onResend={handleResendOtp}
         isSubmitting={isVerifyingOtp}
         error={otpError}
+        devOtp={devOtp}
       />
     </div>
   );
