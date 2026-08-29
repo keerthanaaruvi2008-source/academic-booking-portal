@@ -29,19 +29,22 @@ const autoSeedInMemory = async () => {
       userDocs.push(user);
     }
 
+    const adminUser = userDocs.find((u) => u.role === 'admin') || userDocs[0];
+    const facultyUser = userDocs.find((u) => u.role === 'faculty') || userDocs[1];
+    const studentUser = userDocs.find((u) => u.role === 'student') || userDocs[3];
+
     console.log('[Database] 🏛️ Auto-seeding in-memory campus facilities...');
     const resourceDocs = [];
     for (const resData of SEED_RESOURCES) {
       let resource = await Resource.findOne({ name: resData.name });
       if (!resource) {
-        resource = await Resource.create(resData);
+        resource = await Resource.create({
+          ...resData,
+          createdBy: adminUser._id,
+        });
       }
       resourceDocs.push(resource);
     }
-
-    const adminUser = userDocs.find((u) => u.role === 'admin') || userDocs[0];
-    const facultyUser = userDocs.find((u) => u.role === 'faculty') || userDocs[1];
-    const studentUser = userDocs.find((u) => u.role === 'student') || userDocs[3];
 
     const curieHall = resourceDocs.find((r) => r.name.includes('Curie')) || resourceDocs[0];
     const turingLab = resourceDocs.find((r) => r.name.includes('Lovelace')) || resourceDocs[2];
