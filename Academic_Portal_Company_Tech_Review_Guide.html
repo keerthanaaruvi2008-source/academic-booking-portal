@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Academic Event & Resource Booking Portal — Technical Review & Company Expert Study Guide</title>
+<style>
+  @page {
+    size: A4;
+    margin: 16mm 14mm 16mm 14mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    line-height: 1.55;
+    font-size: 9.5pt;
+    margin: 0;
+    padding: 0;
+  }
+  h1 { font-size: 20pt; color: #1e1b4b; border-bottom: 3px solid #6366f1; padding-bottom: 6px; margin-top: 0; margin-bottom: 12pt; }
+  h2 { font-size: 13.5pt; color: #312e81; border-bottom: 1.5px solid #cbd5e1; padding-bottom: 4px; margin-top: 16pt; margin-bottom: 8pt; page-break-after: avoid; }
+  h3 { font-size: 11pt; color: #4338ca; margin-top: 10pt; margin-bottom: 4pt; page-break-after: avoid; }
+  p, ul, ol { margin-top: 3pt; margin-bottom: 6pt; }
+  li { margin-bottom: 3pt; }
+  .cover { text-align: center; padding-top: 25mm; padding-bottom: 20mm; page-break-after: always; }
+  .cover-title { font-size: 24pt; font-weight: 800; color: #1e1b4b; margin-bottom: 8px; line-height: 1.2; }
+  .cover-subtitle { font-size: 12pt; color: #4f46e5; font-weight: 600; margin-bottom: 20px; }
+  .badge { display: inline-block; padding: 2px 7px; border-radius: 9999px; font-size: 7.5pt; font-weight: 700; text-transform: uppercase; }
+  .badge-primary { background: #e0e7ff; color: #3730a3; }
+  .badge-success { background: #dcfce7; color: #166534; }
+  .badge-danger { background: #fee2e2; color: #991b1b; }
+  .badge-warning { background: #fef3c7; color: #92400e; }
+  .callout { background: #f8fafc; border-left: 4px solid #6366f1; padding: 8px 12px; margin: 8pt 0; border-radius: 0 6px 6px 0; font-size: 9pt; }
+  .callout-title { font-weight: 700; color: #312e81; margin-bottom: 2pt; }
+  .callout-danger { border-left-color: #ef4444; background: #fef2f2; }
+  .callout-warning { border-left-color: #f59e0b; background: #fffbeb; }
+  .callout-success { border-left-color: #10b981; background: #f0fdf4; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; font-size: 8.5pt; page-break-inside: avoid; }
+  th, td { border: 1px solid #cbd5e1; padding: 5px 8px; text-align: left; }
+  th { background-color: #f1f5f9; color: #0f172a; font-weight: 700; }
+  tr:nth-child(even) { background-color: #f8fafc; }
+  pre { background-color: #0f172a; color: #e2e8f0; padding: 8px 12px; border-radius: 6px; font-family: Consolas, monospace; font-size: 8pt; line-height: 1.35; page-break-inside: avoid; margin: 6pt 0; }
+  code { font-family: Consolas, monospace; font-size: 8.5pt; background: #f1f5f9; color: #b91c1c; padding: 1px 4px; border-radius: 4px; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  .page-break { page-break-after: always; }
+  .diagram { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px; font-family: Consolas, monospace; font-size: 7.5pt; white-space: pre; line-height: 1.25; margin: 6pt 0; }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div style="font-size: 11pt; font-weight: 700; color: #4338ca; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px;">Technical Architecture & Company Expert Master Handbook</div>
+  <div class="cover-title">Academic Event & Resource Booking Portal</div>
+  <div class="cover-subtitle">Problem Statement, Tech Stack Rationale, Alternative Analysis, Backend Security & Innovation Blueprint</div>
+  
+  <div style="margin: 20px auto; width: 60px; height: 3px; background: #6366f1;"></div>
+
+  <div style="max-width: 500px; margin: 0 auto; text-align: left; background: #f8fafc; padding: 14px 18px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 8.5pt; line-height: 1.65;">
+    <div><strong>Target Domain:</strong> Centralized Campus Resource & Facility Scheduling</div>
+    <div><strong>Core Invariant:</strong> Structurally Impossible Double-Booking Guaranteed</div>
+    <div><strong>Architecture:</strong> Layered MVC + Microservice Sidecar + Serverless Edge</div>
+    <div><strong>Security:</strong> Dual-Token JWT + RBAC + Stateless HMAC Verification</div>
+    <div><strong>Deployment:</strong> Vercel Edge SPA + Serverless Express + Cloud Atlas DB</div>
+  </div>
+
+  <div style="margin-top: 30px; font-size: 9pt; color: #64748b; line-height: 1.65;">
+    Prepared for Company Technical Experts, System Architects, and Technical Interviews<br>
+    <strong>Author / Lead Developer:</strong> Keerthana (Easwari Engineering College)<br>
+    <strong>Version:</strong> 2.4.0 Production Release &bull; <strong>Date:</strong> August 2026
+  </div>
+</div>
+
+<!-- SECTION 1 -->
+<h2>1. Problem Statement</h2>
+<p>In academic institutions (engineering colleges, universities), managing high-demand shared resources—such as <strong>Auditoriums, Seminar Halls, High-Performance Computing Labs, Smart Classrooms, and Mobile AV Kits</strong>—is plagued by fundamental operational inefficiencies:</p>
+
+<ul>
+  <li><strong>The Double-Booking Disaster:</strong> Multiple departments, faculty members, and student clubs request the same venue (e.g. Seminar Hall A) for the same date and time via manual registers, phone calls, or un-synchronized Google Forms, resulting in on-ground event collisions.</li>
+  <li><strong>Lack of Real-Time Availability Visibility:</strong> Event organizers cannot see when a hall is free versus occupied without walking to the admin office or waiting days for email replies.</li>
+  <li><strong>Concurrency Race Conditions:</strong> When two users submit a booking for the exact same slot at the exact same second during symposium season, naive systems accept both, causing catastrophic double-allocations.</li>
+  <li><strong>No Smart Conflict Resolution:</strong> When a slot is taken, traditional systems simply output a generic failure message—they provide zero automatic alternative slot recommendations.</li>
+  <li><strong>Unauthorized Access:</strong> Students booking admin-only venues or outside users attempting access without verified institutional credentials.</li>
+</ul>
+
+<!-- SECTION 2 -->
+<h2>2. Project Explanation (Architecture & End-to-End Workflow)</h2>
+<p>The <strong>Academic Event & Resource Booking Portal</strong> is an enterprise-grade full-stack web application with an <strong>unbreachable, mathematically guaranteed double-booking prevention engine</strong>, role-based access control, and an <strong>AI Natural Language Assistant</strong>.</p>
+
+<div class="callout callout-danger">
+  <div class="callout-title">The Core Non-Negotiable System Invariant</div>
+  <strong>Zero Double-Booking, Structurally Guaranteed:</strong> No two <code>approved</code> or <code>pending</code> reservations may ever overlap in time for the same resource, across any level of network concurrency or simultaneous submissions.
+</div>
+
+<h3>2.1 Layered Architecture Diagram</h3>
+<div class="diagram">
++---------------------------------------------------------------------------------+
+|                       CLIENT TIER (React 18 SPA / Vite)                         |
+|   [AuthContext]   [ToastContext]   [Axios Interceptor Queue]   [AI Chat Drawer] |
++---------------------------------------------------------------------------------+
+                                         |  HTTPS / JSON / JWT Cookies
+                                         v
++---------------------------------------------------------------------------------+
+|                      API GATEWAY / BACKEND TIER (Express.js)                    |
+|   [Helmet / CORS] -> [RateLimiter / NoSqlSanitizer] -> [JWT Auth / RBAC Guard]  |
+|   ----------------------------------------------------------------------------  |
+|   [Auth Routes]      [Resource Routes]      [Booking Routes]     [AI Routes]    |
+|   [AuthController]   [ResourceController]   [BookingController]  [AIController] |
+|   [AuthService]      [ResourceService]      [ConflictService]    [AIService]    |
++---------------------------------------------------------------------------------+
+          |                                      |                        |
+          v                                      v                        v
++-------------------+                 +---------------------+   +-----------------+
+| SMTP MAIL SERVER  |                 | MONGODB ATLAS CLOUD |   | FASTAPI SIDECAR |
+| (Gmail TLS 465)   |                 | (ACID Transactions) |   | (Python LLM)    |
++-------------------+                 +---------------------+   +-----------------+
+</div>
+
+<h3>2.2 End-to-End Lifecycle:</h3>
+<ol>
+  <li><strong>Registration & Auth:</strong> Users register with institutional college emails (<code>@eec.srmrmp.edu.in</code>), verify a 6-digit OTP, and receive secure dual JWT tokens.</li>
+  <li><strong>Resource Catalog:</strong> Browse campus facilities with real-time filters (capacity, building, amenities, equipment).</li>
+  <li><strong>Availability Engine:</strong> Computes free vs. busy slots on an interactive timeline for any selected date in (O(N)) linear time.</li>
+  <li><strong>Conflict-Free Booking:</strong> User selects a slot. The backend executes an atomic transaction check. If free, it creates the booking; if taken, it immediately returns <strong>HTTP 409 Conflict with top 3 alternative open slots</strong>.</li>
+  <li><strong>Admin Approval & Workflow:</strong> Admins review pending requests on a dashboard, approve/reject with mandatory reasons, or override bookings.</li>
+  <li><strong>AI Assistant:</strong> Users can type plain English queries (e.g., <em>"Find an AC seminar hall for 100 people next Friday morning"</em>), and the AI returns ranked facilities with 1-click booking chips.</li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- SECTION 3 -->
+<h2>3. Tech Stack Used</h2>
+<table>
+  <thead>
+    <tr><th>Layer</th><th>Technology</th><th>Role & Version</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Frontend UI</strong></td><td><strong>React.js 18</strong> + <strong>Vite 6</strong></td><td>SPA, React Router v7, Tailwind CSS, Lucide Icons, Context API</td></tr>
+    <tr><td><strong>HTTP Client</strong></td><td><strong>Axios</strong></td><td>Custom Interceptor Queue for transparent silent JWT refresh</td></tr>
+    <tr><td><strong>Backend API</strong></td><td><strong>Node.js 25</strong> + <strong>Express.js 4</strong></td><td>Modular layered MVC, Zod validation, Helmet, Cookie-Parser, Morgan</td></tr>
+    <tr><td><strong>Database</strong></td><td><strong>MongoDB</strong> + <strong>Mongoose 8</strong></td><td>Multi-Document ACID Transactions, Compound Range Indexes</td></tr>
+    <tr><td><strong>AI Microservice</strong></td><td><strong>Python 3.14</strong> + <strong>FastAPI</strong></td><td>Google Gemini GenAI SDK, Pydantic v2, Regex Fallback Engine</td></tr>
+    <tr><td><strong>Email / OTP</strong></td><td><strong>Nodemailer</strong> + <strong>Crypto</strong></td><td>SMTP over TLS (Port 465), Stateless HMAC OTP Verification</td></tr>
+    <tr><td><strong>Deployment</strong></td><td><strong>Vercel</strong> + <strong>MongoDB Atlas</strong></td><td>Vercel Edge Serverless Functions + Cloud Replica Set Database</td></tr>
+  </tbody>
+</table>
+
+<!-- SECTION 4 -->
+<h2>4. Why Do We Use This Tech Stack?</h2>
+<h3>1. React 18 + Vite</h3>
+<ul>
+  <li><strong>Component-Driven Reusability:</strong> Modular components for Booking Modals, Availability Timelines, and Toast Notifications.</li>
+  <li><strong>Virtual DOM & Fast UI Updates:</strong> Instant slot-picking feedback without full page reloads.</li>
+  <li><strong>Vite:</strong> Sub-second Hot Module Replacement (HMR) and optimized rollup production bundles (~10x faster than legacy Webpack / CRA).</li>
+</ul>
+
+<h3>2. Node.js + Express</h3>
+<ul>
+  <li><strong>Asynchronous Non-Blocking I/O:</strong> The Single-Threaded Event Loop handles thousands of concurrent booking inquiries and status checks with ultra-low memory overhead.</li>
+  <li><strong>Unified Language (Full-Stack JS):</strong> Shared data types, validation schemas, and JSON serialization between frontend and backend.</li>
+</ul>
+
+<h3>3. MongoDB + Mongoose</h3>
+<ul>
+  <li><strong>Flexible Document Structure:</strong> Campus resources have varying schemas (labs have Linux PCs/GPUs, seminar halls have AV systems/projectors, equipment has kit counts). MongoDB represents these as native JSON documents.</li>
+  <li><strong>ACID Multi-Document Transactions:</strong> Guarantees atomic writes so two parallel bookings for the same room cannot slip through.</li>
+  <li><strong>Compound Indexing:</strong> Indexes on <code>{ resourceId: 1, startTime: 1, endTime: 1, status: 1 }</code> allow instant range filtering in (O(log N)) time.</li>
+</ul>
+
+<h3>4. FastAPI + Python for AI</h3>
+<ul>
+  <li><strong>AI Ecosystem Standard:</strong> Python is the native home for modern AI/LLM SDKs (Google GenAI, LangChain, PyTorch).</li>
+  <li><strong>Asynchronous ASGI Performance:</strong> FastAPI handles async requests rapidly with automatic <strong>Pydantic schema validation</strong>.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- SECTION 5 -->
+<h2>5. Why Didn't We Use Alternatives? ("En Vera Use Pannala?")</h2>
+<table>
+  <thead>
+    <tr><th>Alternative</th><th>Why We Did NOT Use It</th><th>Why Our Choice is Superior</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SQL alone (MySQL / PostgreSQL)</strong></td>
+      <td>Relational tables require heavy <code>JOIN</code> operations across 5+ tables (Amenities, Locations, ResourceEquipment, Roles, Bookings) on every catalog search, slowing down read latency.</td>
+      <td><strong>MongoDB</strong> stores rich facility metadata in clean single documents with high-speed compound indexes, while still supporting <strong>ACID Transactions</strong> for bookings.</td>
+    </tr>
+    <tr>
+      <td><strong>Django / Flask (Python Backend)</strong></td>
+      <td>Traditional Django uses synchronous WSGI threading where every request occupies a thread, consuming 5–10x more RAM under high concurrency bursts.</td>
+      <td><strong>Node.js</strong> uses asynchronous non-blocking event-driven I/O, handling thousands of concurrent connections with minimal RAM (~40MB).</td>
+    </tr>
+    <tr>
+      <td><strong>Firebase / Supabase (BaaS)</strong></td>
+      <td>Proprietary vendor lock-in, unpredictable cloud pricing at university scale, and lacks custom server-side mathematical interval overlap engines with automatic alternative slot suggestion.</td>
+      <td><strong>Custom Express Backend</strong> gives 100% control over transactional integrity, custom RBAC, and zero vendor lock-in.</td>
+    </tr>
+    <tr>
+      <td><strong>Spring Boot (Java)</strong></td>
+      <td>Heavy JVM memory footprint (250MB+ minimum RAM), long cold-start times on serverless (3–5 seconds), and slower development velocity.</td>
+      <td><strong>Node.js + Express</strong> starts in &lt;100ms, ideal for serverless cloud lambdas on Vercel.</td>
+    </tr>
+    <tr>
+      <td><strong>Putting AI inside Node.js</strong></td>
+      <td>Monolithic AI in Node causes <strong>Single Point of Failure (SPOF)</strong>. If the LLM provider times out or crashes, the entire backend server would crash.</td>
+      <td><strong>FastAPI Sidecar Microservice:</strong> Isolates the AI. If the AI service fails, the core Express booking portal remains <strong>100% functional and online</strong>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- SECTION 6 -->
+<h2>6. Backend Security Architecture</h2>
+<h3>6.1 Dual-Token Authentication (Access + Refresh JWT)</h3>
+<ul>
+  <li><strong>Access Token (15-Minute Expiry):</strong> Short-lived token stored in memory / Authorization header for API calls. Even if intercepted, the attack window is limited to 15 minutes.</li>
+  <li><strong>Refresh Token (7-Day Expiry):</strong> Stored inside an <strong><code>httpOnly</code></strong>, <strong><code>Secure</code></strong>, <strong><code>SameSite=Lax</code></strong> cookie. <strong>JavaScript cannot access this cookie</strong>, making it 100% immune to Cross-Site Scripting (XSS) token theft.</li>
+</ul>
+
+<h3>6.2 Transparent Silent Refresh Queue (Axios)</h3>
+<p>When the 15-minute access token expires, the Axios response interceptor catches the 401 error, holds incoming concurrent requests in a <code>failedQueue</code>, dispatches a single refresh call to <code>/api/v1/auth/refresh</code>, updates the token, and replays all queued requests seamlessly without logging out the user.</p>
+
+<h3>6.3 Stateless HMAC OTP Verification for Serverless</h3>
+<p>On serverless platforms (Vercel), requests execute across ephemeral lambda containers with disjoint RAM memory. The backend computes a stateless <strong>HMAC-SHA256 signature</strong> of the email and OTP code. Verification validates the cryptographic signature without relying on ephemeral server RAM.</p>
+
+<h3>6.4 Additional Hardening:</h3>
+<ul>
+  <li><strong>NoSQL Injection Defense:</strong> <code>sanitizeNoSql</code> middleware recursively strips <code>$</code> and <code>.</code> characters.</li>
+  <li><strong>Rate Limiting:</strong> <code>authLimiter</code> restricts authentication endpoints (max 5 attempts per 15 minutes).</li>
+  <li><strong>Bcrypt Password Hashing:</strong> 10 salt rounds ((2^{10} = 1024) iterations) introduces calibrated ~100ms computational delay to defeat brute-force GPU attacks.</li>
+  <li><strong>Helmet.js Headers:</strong> Enforces <code>X-Content-Type-Options: nosniff</code>, <code>X-Frame-Options: DENY</code> (anti-clickjacking), and HSTS.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- SECTION 7 -->
+<h2>7. Already Existing Portals vs. Our Innovative Features</h2>
+<table>
+  <thead>
+    <tr><th>Dimension</th><th>Existing / Traditional Campus Portals</th><th>Our Academic Booking Portal</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Double-Booking Prevention</strong></td>
+      <td>Checked only on the UI or via simple <code>findOne</code> (vulnerable to TOCTOU race conditions).</td>
+      <td><strong>Mathematically Proven Interval Overlap ((S_A < E_B land E_A > S_B)) + MongoDB Multi-Document ACID Transactions</strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>Conflict Feedback</strong></td>
+      <td>Shows a generic error: <em>"Booking Failed / Unavailable"</em>.</td>
+      <td><strong>HTTP 409 Conflict Envelope with Top 3 Automatically Suggested Alternative Slots</strong> on the same day.</td>
+    </tr>
+    <tr>
+      <td><strong>Search & Discovery</strong></td>
+      <td>Manual dropdown filtering across dozens of pages.</td>
+      <td><strong>Natural Language AI Assistant (Gemini LLM)</strong> that extracts capacity, time, and room type from plain English with 1-click booking chips.</td>
+    </tr>
+    <tr>
+      <td><strong>Availability Inspection</strong></td>
+      <td>Users must select each hour manually to check availability.</td>
+      <td><strong>Linear Timeline Gap Discovery Engine</strong> ((O(N)) time complexity) showing all free vs busy blocks at a glance.</td>
+    </tr>
+    <tr>
+      <td><strong>Institutional Email Guard</strong></td>
+      <td>Generic email allowed or manual admin verification.</td>
+      <td><strong>Strict Institutional Domain Filter (<code>@eec.srmrmp.edu.in</code>) + 6-digit OTP verification</strong> with 1-click Auto-Fill fallback.</td>
+    </tr>
+    <tr>
+      <td><strong>Cloud Architecture</strong></td>
+      <td>Legacy on-premise single-server setup.</td>
+      <td><strong>Stateless Serverless Architecture on Vercel Edge + Cloud MongoDB Atlas</strong> with auto-scaling.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="margin-top: 30pt; padding-top: 10pt; border-top: 2px solid #cbd5e1; text-align: center; font-size: 8pt; color: #64748b;">
+  Academic Event & Resource Booking Portal &bull; Enterprise Technical Specification & Interview Master Guide &bull; Easwari Engineering College
+</div>
+</body>
+</html>
